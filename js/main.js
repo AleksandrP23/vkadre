@@ -119,22 +119,52 @@ if (document.querySelector('.post-gallery-slider')) {
   });
 }
 if (document.querySelector('.case-slider')) {
-  var swiperCase = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](swiperCases, {
+  const swiperCase = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](swiperCases, {
+    // slidesPerView: 3,
+    // loop: true,
+    // grid: {
+    //   rows: 2,
+    //   fill: "row",
+    // },
+    // autoplay: {
+    //   delay: 2000,
+    // },
+    // speed: 500,
+    // spaceBetween: 30,
+    // pagination: {
+    //   el: ".swiper-pagination",
+    //   clickable: true,
+    // },
+    // breakpoints: {
+    //   360: {
+    //     slidesPerView: 1.25,
+    //     spaceBetween: 20,
+    //   },
+    //   650: {
+    //     slidesPerView: 3,
+    //     slidesPerView: 2.6,
+    //   },
+    //   1024: {
+
+    //     spaceBetween: 30,
+    //   },
+    // }
+
     slidesPerView: 3,
-    loop: true,
+    // Количество слайдов в сетке
     grid: {
       rows: 2,
-      fill: "row"
+      // Количество строк в сетке
+      fill: 'row' // Изменено на 'column'
     },
+    spaceBetween: 10,
+    // Расстояние между слайдами
     autoplay: {
-      delay: 2000
+      delay: 2500,
+      // Задержка между автоплеем в миллисекундах
+      disableOnInteraction: false // Автоплей не останавливается при взаимодействии
     },
-    speed: 500,
-    spaceBetween: 30,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true
-    },
+    // loop: true, // Бесконечный цикл
     breakpoints: {
       360: {
         slidesPerView: 1.25,
@@ -180,7 +210,7 @@ if (document.querySelector('.resize-slider')) {
       }
     };
     resizableSwiper('(max-width: 650px)', '.approach-slider', {
-      loop: true,
+      // loop: true,
       slidesPerView: 1,
       grid: {
         rows: 2,
@@ -249,9 +279,11 @@ if (document.querySelector('.search-slider')) {
 if (document.querySelector('.reviews-company-slider')) {
   var swiperReview = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](swiperReviews, {
     autoplay: {
-      delay: 2000
+      delay: 2500,
+      // Задержка между автоплеем в миллисекундах
+      disableOnInteraction: false // Автоплей не останавливается при взаимодействии
     },
-    speed: 2000,
+    // loop: true, // Бесконечный цикл
     slidesPerView: 3,
     grid: {
       rows: 2,
@@ -320,25 +352,219 @@ if (document.querySelector('.certificate-slider')) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+// class GraphLazyVideo {
+//   constructor(videoUrl, options = {}) {
+//     let defaultOptions = {
+//       isFile: false,
+//     };
+
+//     this.options = Object.assign(defaultOptions, options);
+//     this.isFile = options.isFile;
+//     this.videoUrl = videoUrl;
+//     this.container = options.container;
+
+//     if (this.container) {
+//       this.thumbnail = this.container.querySelector('.video__thumbnail');
+//       this.playButton = this.container.querySelector('.video__play');
+//     } else {
+//       console.error("Ошибка: Не найден блок .video");
+//       return;
+//     }
+
+//     this.check();
+//     this.init();
+//   }
+
+//   check() {
+//     if (!this.videoUrl) {
+//       console.error("Ошибка: Не указан адрес видео");
+//       return;
+//     }
+
+//     if (!this.playButton) {
+//       console.error("Ошибка: Не найдена кнопка воспроизведения");
+//       return;
+//     }
+//   }
+
+//   init() {
+//     this.playButton?.addEventListener('click', () => this.loadVideo());
+//   }
+
+//   loadVideo() {
+//     this.thumbnail.remove();
+//     this.playButton.remove();
+
+//     if (this.isFile) {
+//       const video = document.createElement('video');
+//       video.src = this.videoUrl;
+//       video.controls = true;
+//       video.autoplay = true;
+//       this.container.appendChild(video);
+//     } else {
+//       const iframe = document.createElement("iframe");
+//       iframe.src = `${this.videoUrl}?autoplay=1`;
+//       iframe.allow = "autoplay; encrypted-media";
+//       iframe.allowFullscreen = true;
+//       this.container.appendChild(iframe);
+//     }
+//   }
+// }
+
+// // Инициализация видео
+// document.querySelectorAll('.video').forEach(container => {
+//   const videoUrl = container.getAttribute('data-video-url');
+//   const isFile = container.getAttribute('data-is-file') === 'true';
+
+//   if (videoUrl) {
+//     new GraphLazyVideo(videoUrl, {
+//       container: container,
+//       isFile: isFile
+//     });
+//   } else {
+//     console.error("Ошибка: Не указан адрес видео для контейнера", container);
+//   }
+// });
+
+// class GraphLazyVideo {
+//   constructor(videoUrl, options = {}) {
+//     let defaultOptions = {
+//       isFile: false,
+//       autoplay: false, // Добавляем параметр autoplay
+//     };
+
+//     this.options = Object.assign(defaultOptions, options);
+//     this.isFile = options.isFile;
+//     this.videoUrl = videoUrl;
+//     this.container = options.container;
+
+//     if (this.container) {
+//       this.thumbnail = this.container.querySelector('.video__thumbnail');
+//       this.playButton = this.container.querySelector('.video__play');
+//       this.stopButton = document.createElement('button'); // Создаем кнопку "Стоп"
+//       // this.stopButton.textContent = 'Стоп';
+//       this.stopButton.classList.add('btn-reset', 'video__play'); // Добавляем классы
+//       this.stopButton.style.display = 'none'; // Скрываем кнопку "Стоп" изначально
+//       this.container.appendChild(this.stopButton); // Добавляем кнопку в контейнер
+//     } else {
+//       console.error("Ошибка: Не найден блок .video");
+//       return;
+//     }
+
+//     this.check();
+//     this.init();
+
+//     // Автозагрузка видео, если указано в параметрах
+//     if (this.options.autoplay) {
+//       this.loadVideo();
+//     }
+//   }
+
+//   check() {
+//     if (!this.videoUrl) {
+//       console.error("Ошибка: Не указан адрес видео");
+//       return;
+//     }
+
+//     if (!this.playButton) {
+//       console.error("Ошибка: Не найдена кнопка воспроизведения");
+//       return;
+//     }
+//   }
+
+//   init() {
+//     this.playButton?.addEventListener('click', () => this.loadVideo());
+//     this.stopButton.addEventListener('click', () => this.stopVideo());
+//   }
+
+//   loadVideo() {
+//     this.thumbnail.remove();
+//     this.playButton.remove();
+//     this.stopButton.style.display = 'block'; // Показываем кнопку "Стоп"
+
+//     if (this.isFile) {
+//       const video = document.createElement('video');
+//       video.src = this.videoUrl;
+//       video.controls = true;
+//       video.autoplay = true;
+//       video.muted = true; // Включаем беззвучный режим
+//       this.container.appendChild(video);
+//       this.currentVideo = video; // Сохраняем ссылку на элемент видео
+//     } else {
+//       const iframe = document.createElement("iframe");
+//       iframe.src = `${this.videoUrl}?autoplay=1&mute=1`; // Добавляем mute для автозапуска без звука
+//       iframe.allow = "autoplay; encrypted-media";
+//       iframe.allowFullscreen = true;
+//       this.container.appendChild(iframe);
+//       this.currentIframe = iframe; // Сохраняем ссылку на iframe
+//     }
+//   }
+
+//   stopVideo() {
+//     if (this.currentVideo) {
+//       this.currentVideo.pause(); // Останавливаем видео
+//       this.currentVideo.remove(); // Удаляем элемент видео
+//       this.currentVideo = null; // Сбрасываем ссылку
+//     } else if (this.currentIframe) {
+//       this.currentIframe.remove(); // Удаляем iframe
+//       this.currentIframe = null; // Сбрасываем ссылку
+//     }
+
+//     this.stopButton.style.display = 'none'; // Скрываем кнопку "Стоп"
+//     this.container.appendChild(this.playButton); // Показываем кнопку воспроизведения
+//     this.thumbnail && this.container.appendChild(this.thumbnail); // Показываем миниатюру
+//   }
+// }
+
+// // Инициализация видео
+// document.querySelectorAll('.video').forEach(container => {
+//   const videoUrl = container.getAttribute('data-video-url');
+//   const isFile = container.getAttribute('data-is-file') === 'true';
+//   const autoplay = container.getAttribute('data-autoplay') === 'true'; // Получаем значение autoplay
+
+//   if (videoUrl) {
+//     new GraphLazyVideo(videoUrl, {
+//       container: container,
+//       isFile: isFile,
+//       autoplay: autoplay // Передаем значение autoplay
+//     });
+//   } else {
+//     console.error("Ошибка: Не указан адрес видео для контейнера", container);
+//   }
+// });
+
 class GraphLazyVideo {
   constructor(videoUrl) {
     let options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
     let defaultOptions = {
-      isFile: false
+      isFile: false,
+      autoplay: false
     };
     this.options = Object.assign(defaultOptions, options);
     this.isFile = options.isFile;
     this.videoUrl = videoUrl;
     this.container = options.container;
+    this.intersectionObserver = null;
+    this.currentVideo = null; // Ссылка на текущий видеоэлемент
+    this.currentIframe = null; // Ссылка на текущий iframe
+
     if (this.container) {
       this.thumbnail = this.container.querySelector('.video__thumbnail');
       this.playButton = this.container.querySelector('.video__play');
+      this.stopButton = document.createElement('button'); // Создаем кнопку "Стоп"
+      // this.stopButton.textContent = 'Стоп';
+      this.stopButton.classList.add('btn-reset', 'video__play'); // Добавляем классы
+      this.stopButton.style.display = 'none'; // Скрываем кнопку "Стоп" изначально
+      this.container.appendChild(this.stopButton); // Добавляем кнопку в контейнер
     } else {
       console.error("Ошибка: Не найден блок .video");
       return;
     }
     this.check();
     this.init();
+
+    // Инициализация Intersection Observer
+    this.initObserver();
   }
   check() {
     if (!this.videoUrl) {
@@ -352,23 +578,59 @@ class GraphLazyVideo {
   }
   init() {
     this.playButton?.addEventListener('click', () => this.loadVideo());
+    this.stopButton.addEventListener('click', () => this.stopVideo());
+  }
+  initObserver() {
+    this.intersectionObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Загружаем видео только если autoplay установлен в true
+          if (this.options.autoplay) {
+            this.loadVideo();
+          }
+        } else {
+          this.stopVideo(); // Останавливаем видео, когда оно выходит за пределы видимости
+        }
+      });
+    });
+    this.intersectionObserver.observe(this.container); // Начинаем наблюдение за контейнером
   }
   loadVideo() {
+    if (this.currentVideo || this.currentIframe) return; // Если видео уже загружено, ничего не делаем
+
     this.thumbnail.remove();
     this.playButton.remove();
+    this.stopButton.style.display = 'block'; // Показываем кнопку "Стоп"
+
     if (this.isFile) {
       const video = document.createElement('video');
       video.src = this.videoUrl;
       video.controls = true;
-      video.autoplay = true;
+      video.autoplay = true; // Включаем автозапуск
+      video.muted = true; // Включаем беззвучный режим
       this.container.appendChild(video);
+      this.currentVideo = video; // Сохраняем ссылку на элемент видео
     } else {
       const iframe = document.createElement("iframe");
-      iframe.src = `${this.videoUrl}?autoplay=1`;
+      iframe.src = `${this.videoUrl}?autoplay=1&mute=1`; // Добавляем mute для автозапуска без звука
       iframe.allow = "autoplay; encrypted-media";
       iframe.allowFullscreen = true;
       this.container.appendChild(iframe);
+      this.currentIframe = iframe; // Сохраняем ссылку на iframe
     }
+  }
+  stopVideo() {
+    if (this.currentVideo) {
+      this.currentVideo.pause(); // Останавливаем видео
+      this.currentVideo.remove(); // Удаляем элемент видео
+      this.currentVideo = null; // Сбрасываем ссылку
+    } else if (this.currentIframe) {
+      this.currentIframe.remove(); // Удаляем iframe
+      this.currentIframe = null; // Сбрасываем ссылку
+    }
+    this.stopButton.style.display = 'none'; // Скрываем кнопку "Стоп"
+    this.container.appendChild(this.playButton); // Показываем кнопку воспроизведения
+    this.thumbnail && this.container.appendChild(this.thumbnail); // Показываем миниатюру
   }
 }
 
@@ -376,15 +638,22 @@ class GraphLazyVideo {
 document.querySelectorAll('.video').forEach(container => {
   const videoUrl = container.getAttribute('data-video-url');
   const isFile = container.getAttribute('data-is-file') === 'true';
+  const autoplay = container.getAttribute('data-autoplay') === 'true';
   if (videoUrl) {
     new GraphLazyVideo(videoUrl, {
       container: container,
-      isFile: isFile
+      isFile: isFile,
+      autoplay: autoplay // Передаем значение autoplay
     });
   } else {
     console.error("Ошибка: Не указан адрес видео для контейнера", container);
   }
 });
+
+// Копировать
+// <iframe src="your-content.html" style="width: 100%; height: 500px;"
+//         onmouseover="this.style.cursor='copy';"
+//         onmouseout="this.style.cursor='default';"></iframe>
 
 /***/ }),
 
