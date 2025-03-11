@@ -73,6 +73,18 @@
   </div>
 </header>
 
+    <div class="breadcrumbs">
+      <div class="container">
+        <ul class="list-reset breadcrumbs__list">
+          <li class="breadcrumbs__item">
+            <a href="/" class="breadcrumbs__link">Главная</a>
+          </li>
+          <li class="breadcrumbs__item">
+            <a class="breadcrumbs__link">Подбор специалистов</a>
+          </li>
+        </ul>
+      </div>
+    </div>
     <main class="main selection">
       <section class="selection-hero">
   <div class="container">
@@ -792,7 +804,25 @@
       <ul class="list-reset candidate__list">
         <li class="candidate__item">
           <svg class="candidate__svg">
-            <use xlink:href="img/sprite.svg#gr-1"></use>
+            <defs>
+              <linearGradient id="paint0_linear_2370_2472" x1="-2.39754" y1="18.303" x2="26.7072" y2="18.8638" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#DA0202" />
+                <stop offset="1" stop-color="#074BC9" />
+              </linearGradient>
+              <linearGradient id="paint1_linear_2370_2472" x1="-2.39754" y1="18.303" x2="26.7072" y2="18.8638" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#DA0202" />
+                <stop offset="1" stop-color="#074BC9" />
+              </linearGradient>
+              <linearGradient id="paint2_linear_2370_2472" x1="4.43292" y1="19.8212" x2="34.6762" y2="20.5888" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#DA0202" />
+                <stop offset="1" stop-color="#074BC9" />
+              </linearGradient>
+              <linearGradient id="paint3_linear_2370_2472" x1="4.43292" y1="19.8212" x2="34.6762" y2="20.5888" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#DA0202" />
+                <stop offset="1" stop-color="#074BC9" />
+              </linearGradient>
+            </defs>
+            <use xlink:href="img/sprite.svg#gr-8"></use>
           </svg>
           <p class="candidate__text">резюме</p>
         </li>
@@ -804,20 +834,30 @@
               <stop offset="1" stop-color="#074BC9"/>
               </linearGradient>
               </defs>
-            <use xlink:href="img/sprite.svg#gr-1">
+            <use xlink:href="img/sprite.svg#gr-9">
             </use>
           </svg>
           <p class="candidate__text">сопроводительного письма с нашей оценкой</p>
         </li>
         <li class="candidate__item">
           <svg class="candidate__svg">
-            <use xlink:href="img/sprite.svg#icon"></use>
+            <use xlink:href="img/sprite.svg#gr-10"></use>
           </svg>
           <p class="candidate__text">рекомендаций от предыдущего работодателя</p>
         </li>
         <li class="candidate__item">
           <svg class="candidate__svg">
-            <use xlink:href="img/sprite.svg#gr-1"></use>
+            <defs>
+              <linearGradient id="paint0_linear_2370_4343" x1="23.5781" y1="17.043" x2="39.1495" y2="17.2932" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#DA0202" />
+                <stop offset="1" stop-color="#074BC9" />
+              </linearGradient>
+              <linearGradient id="paint1_linear_2370_4343" x1="-3.91169" y1="18.303" x2="32.2279" y2="19.1679" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#DA0202" />
+                <stop offset="1" stop-color="#074BC9" />
+              </linearGradient>
+            </defs>
+            <use xlink:href="img/sprite.svg#gr-11"></use>
           </svg>
           <p class="candidate__text">заключением нашей службы безопасности</p>
         </li>
@@ -844,15 +884,15 @@
           <input type="text" name="Имя" class="input-reset form__input" placeholder="Ваше имя">
         </label>
         <label class="form__label">
-          <input type="tel" name="Имя" class="input-reset form__input" placeholder="Имя">
+          <input type="tel" name="Имя" class="input-reset form__input" placeholder="Телефон">
         </label>
         <label class="form__label">
-          <input type="text" name="Должность или ссылка на вакансию" class="input-reset form__input" placeholder="Имя">
+          <input type="text" name="Должность или ссылка на вакансию" class="input-reset form__input" placeholder="Должность или ссылка на вакансию">
         </label>
         <label class="custom-checkbox">
           <input type="checkbox" name="agree" class="form__input--policy"> <span class="custom-checkbox__text">Я согласен (а) с условиями <a href="/assets/agreed.pdf"
               target="_blank">Политики на обработку персональных данных</a></span></label>
-        <button class="btn-reset btn-color form__btn">Получить резюме</button>
+        <button class="btn-reset btn-color form__btn">Получить подборку резюме</button>
       </form>
     </div>
     <div class="info">
@@ -896,16 +936,16 @@
           <input type="text" name="Имя" class="input-reset form__input" placeholder="Ваше имя">
         </label>
         <label class="form__label">
-          <input type="tel" name="Имя" class="input-reset form__input" placeholder="Имя">
+          <input type="tel" name="Имя" class="input-reset form__input" placeholder="Телефон">
         </label>
         <label class="form__label">
-          <input type="text" name="Должность или ссылка на вакансию" class="input-reset form__input" placeholder="Имя">
+          <input type="text" name="Должность или ссылка на вакансию" class="input-reset form__input" placeholder="Должность или ссылка на вакансию">
         </label>
         <label class="custom-checkbox">
           <input type="checkbox" name="agree" class="form__input--policy"> <span class="custom-checkbox__text">Я
             согласен (а) с условиями <a href="/assets/agreed.pdf" target="_blank">Политики на обработку персональных
               данных</a></span></label>
-        <button class="btn-reset btn-color form__btn">Получить резюме</button>
+        <button class="btn-reset btn-color form__btn">Отправить вакансию</button>
       </form>
     </div>
   </div>
@@ -918,6 +958,17 @@
     <div class="audit-page__wrapper">
       <div class="audit-page__card">
         <svg class="audit-page__card-svg">
+          <defs>
+            <linearGradient id="paint0_linear_584_2462" x1="54.5" y1="75.5" x2="239.402" y2="75.5" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#084BC9" />
+              <stop offset="0.485" stop-color="#7DAAFF" />
+              <stop offset="1" stop-color="#084BC9" />
+            </linearGradient>
+            <linearGradient id="paint1_linear_584_2462" x1="-23.1607" y1="220.942" x2="208.844" y2="214.405" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#CC6B7F" />
+              <stop offset="1" stop-color="#93B9FF" />
+            </linearGradient>
+          </defs>
           <use xlink:href="img/sprite.svg#audit-1"></use>
         </svg>
         <div class="audit-page__content">
@@ -929,7 +980,7 @@
       </div>
       <div class="audit-page__card">
         <svg class="audit-page__card-svg">
-          <use xlink:href="img/sprite.svg#audit-1"></use>
+          <use xlink:href="img/sprite.svg#audit-2"></use>
         </svg>
         <div class="audit-page__content">
           <h4 class="audit-page__card-title">Оптимизация управленческих расходов</h4>
@@ -939,7 +990,7 @@
       </div>
       <div class="audit-page__card">
         <svg class="audit-page__card-svg">
-          <use xlink:href="img/sprite.svg#audit-1"></use>
+          <use xlink:href="img/sprite.svg#audit-2"></use>
         </svg>
         <div class="audit-page__content">
           <h4 class="audit-page__card-title">Рост производительности
@@ -950,7 +1001,7 @@
       </div>
       <div class="audit-page__card">
         <svg class="audit-page__card-svg">
-          <use xlink:href="img/sprite.svg#audit-1"></use>
+          <use xlink:href="img/sprite.svg#audit-3"></use>
         </svg>
         <div class="audit-page__content">
           <h4 class="audit-page__card-title">Гибкие решения под ваш бюджет</h4>
@@ -960,7 +1011,7 @@
       </div>
       <div class="audit-page__card">
         <svg class="audit-page__card-svg">
-          <use xlink:href="img/sprite.svg#audit-1"></use>
+          <use xlink:href="img/sprite.svg#audit-4"></use>
         </svg>
         <div class="audit-page__content">
           <h4 class="audit-page__card-title">IT-специалисты — современное золото</h4>
