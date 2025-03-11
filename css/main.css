@@ -886,7 +886,7 @@ a {
 
 .burger {
   --burger-width: 30px;
-  --burger-height: 30px;
+  --burger-height: 20px;
   --burger-line-height: 2px;
   position: relative;
   border: none;
@@ -3844,6 +3844,9 @@ header.scrolled {
     padding-bottom: 60px;
   }
 }
+.certificate .section-title__bottom {
+  translate: 15%;
+}
 
 .services {
   padding-bottom: 130px;
@@ -6503,7 +6506,7 @@ header.scrolled {
 }
 
 .selection .success-company .section-title__top {
-  translate: -10%;
+  translate: 0;
 }
 @media (max-width: 650px) {
   .selection {
@@ -6552,6 +6555,7 @@ header.scrolled {
   display: grid;
   -ms-grid-columns: 1fr 1fr;
   grid-template-columns: 1fr 1fr;
+  overflow: hidden;
   gap: 30px;
 }
 @media (max-width: 650px) {
@@ -6588,20 +6592,50 @@ header.scrolled {
 }
 .audit-page__card:nth-child(2) .audit-page__card-svg {
   top: 0;
-  width: 80px;
+  width: 112px;
+}
+@media (max-width: 960px) {
+  .audit-page__card:nth-child(2) .audit-page__card-svg {
+    width: 62px;
+  }
 }
 .audit-page__card:nth-child(3) .audit-page__card-svg {
   top: inherit;
   bottom: 0;
-  width: 140px;
+  width: 234px;
+  height: 150px;
+}
+@media (max-width: 960px) {
+  .audit-page__card:nth-child(3) .audit-page__card-svg {
+    width: 130px;
+  }
+}
+@media (max-width: 650px) {
+  .audit-page__card:nth-child(3) .audit-page__card-svg {
+    bottom: -30px;
+  }
 }
 .audit-page__card:nth-child(3) .audit-page__descr {
   padding-right: 80px;
 }
 .audit-page__card:nth-child(4) .audit-page__card-svg {
-  top: 25%;
-  width: 140px;
-  height: 125px;
+  right: -30px;
+  top: 15%;
+  width: 175px;
+  height: 200px;
+}
+@media (max-width: 960px) {
+  .audit-page__card:nth-child(4) .audit-page__card-svg {
+    right: -20px;
+    width: 150px;
+    height: 162px;
+  }
+}
+@media (max-width: 650px) {
+  .audit-page__card:nth-child(4) .audit-page__card-svg {
+    right: 25px;
+    top: 0;
+  }
 }
 .audit-page__card:nth-child(4) .audit-page__card-title {
   padding-right: 30px;
@@ -6632,10 +6666,15 @@ header.scrolled {
   position: absolute;
   right: 0;
   top: 0;
-  width: 120px;
+  width: 220px;
   height: 100px;
   fill: url("#paint0_linear_584_2462");
   opacity: 0.7;
+}
+@media (max-width: 960px) {
+  .audit-page__card-svg {
+    width: 130px;
+  }
 }
 @media (max-width: 650px) {
   .audit-page__card-svg {

@@ -488,19 +488,19 @@ if (document.querySelector('.post-gallery-slider')) {
     navigation: {
       nextEl: '.post-gallery__next',
       prevEl: '.post-gallery__prev'
-    },
-    breakpoints: {
-      // when window width is >= 320 px
-      320: {
-        slidesPerView: 1
-      },
-      768: {
-        slidesPerView: 2
-      },
-      1024: {
-        slidesPerView: 4
-      }
     }
+    // breakpoints: {
+    //   // when window width is >= 320 px
+    //   320: {
+    //     slidesPerView: 1,
+    //   },
+    //   768: {
+    //     slidesPerView: 2,
+    //   },
+    //   1024: {
+    //     slidesPerView: 4,
+    //   },
+    // }
   });
   handleAutoplay(swiperGallery); // Запуск автоплея для этого слайдера
 }
