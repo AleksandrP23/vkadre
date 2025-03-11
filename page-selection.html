@@ -65,23 +65,119 @@
           <svg class="header__contacts-svg">
             <use xlink:href="img/sprite.svg#mail-h"></use>
           </svg>
-          </a>
+        </a>
         <span class="header__contact-text">Напишите нам</span>
       </div>
       <a href="#!" class="header__btn">Узнать стоимость</a>
       <button class="btn-reset burger" aria-label="Открыть меню" aria-expanded="false" data-burger>
         <span class="burger__line"></span>
       </button>
-      <!-- <ul class="list-reset menu-list" data-menu>
-        <li class="menu-list__item">меню 1</li>
-        <li class="menu-list__item">меню 1</li>
-        <li class="menu-list__item">меню 1</li>
-        <li class="menu-list__item">меню 1</li>
-        <li class="menu-list__item">меню 1</li>
-      </ul> -->
+
+    </div>
+    <div class="acc-menu" data-menu>
+      <div class="acc-menu__wrap">
+        <button class="btn-reset acc-menu__btn acc-menu__btn--none" id="toggleButton">развернуть</button>
+        <div class="acc-menu__btn">г. Екатеринбург</div>
+      </div>
+      <div class="menu__group-accordion">
+        <div class="menu-accordion">
+          <details class="menu-accordion__details" name="faq">
+            <summary class="menu-accordion__summary">
+              <h3 class="menu-accordion__title" role="term" aria-details="faq-1">
+                Пункт меню
+              </h3>
+            </summary>
+          </details>
+          <div class="menu-accordion__content" id="faq-1" role="definition">
+            <div class="menu-accordion__content-body">
+              <ul class="list-reset  menu-accordion__content-text">
+                <li>подпункт</li>
+                <li>подпункт</li>
+                <li>подпункт</li>
+                <li>подпункт</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="menu-accordion">
+          <details class="menu-accordion__details" name="faq">
+            <summary class="menu-accordion__summary">
+              <h3 class="menu-accordion__title" role="term" aria-details="faq-1">
+                Пункт меню
+              </h3>
+            </summary>
+          </details>
+          <div class="menu-accordion__content" id="faq-1" role="definition">
+            <div class="menu-accordion__content-body">
+              <ul class="list-reset  menu-accordion__content-text">
+                <li>подпункт</li>
+                <li>подпункт</li>
+                <li>подпункт</li>
+                <li>подпункт</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="menu-accordion">
+          <details class="menu-accordion__details" name="faq">
+            <summary class="menu-accordion__summary">
+              <h3 class="menu-accordion__title" role="term" aria-details="faq-1">
+                Пункт меню
+              </h3>
+            </summary>
+          </details>
+          <div class="menu-accordion__content" id="faq-1" role="definition">
+            <div class="menu-accordion__content-body">
+              <ul class="list-reset  menu-accordion__content-text">
+                <li>подпункт</li>
+                <li>подпункт</li>
+                <li>подпункт</li>
+                <li>подпункт</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </header>
+
+<!-- <div class="acc-menu" data-menu>
+  <button class="btn-reset" id="toggleButton">Раскрыть все</button>
+  <ul class="acc-menu__list">
+    <li class="acc-menu__item acc-menu-acc">
+      <details class="acc-menu-acc__details" name="faq">
+        <summary class="acc-menu-acc__summary">
+          <h3 class="acc-menu-acc__title" role="term" aria-details="faq-1">
+            Пункт меню 1
+          </h3>
+        </summary>
+      </details>
+      <div class="acc-menu-acc__content" id="faq-1" role="definition">
+        <div class="acc-menu-acc__content-body">
+          <p class="acc-menu-acc__content-text">подпункт 1</p>
+        </div>
+      </div>
+    </li>
+    <li class="acc-menu__item acc-menu-acc">
+      <details class="acc-menu-acc__details" name="faq">
+        <summary class="acc-menu-acc__summary">
+          <h3 class="acc-menu-acc__title" role="term" aria-details="faq-1">
+            Пункт меню 1
+          </h3>
+        </summary>
+      </details>
+      <div class="acc-menu-acc__content" id="faq-1" role="definition">
+        <div class="acc-menu-acc__content-body">
+          <p class="acc-menu-acc__content-text">подпункт 1</p>
+        </div>
+      </div>
+    </li>
+    <li class="acc-menu__item acc-menu-acc">меню 3</li>
+    <li class="acc-menu__item acc-menu-acc">меню 4</li>
+    <li class="acc-menu__item acc-menu-acc">меню 5</li>
+  </ul>
+</div> -->
 
     <div class="breadcrumbs">
       <div class="container">
@@ -109,7 +205,7 @@
       <div class="selection-hero__inners">
         <div class="video selection-hero__video" id="video-1"
         data-video-url="https://www.youtube.com/embed/4vSXp-83sj4" data-autoplay="true">
-          <img class="video__thumbnail" src="./img/preview.jpg" aria-hidden="true" decoding="async" loading="lazy" alt="">
+          <img class="video__thumbnail" src="../img/preview.jpg" aria-hidden="true" decoding="async" loading="lazy" alt="">
           <button class="btn-reset video__play" aria-label="Запустить видео">
             <img loading="lazy" src="./img/play.svg" class="image" width="120" height="120" alt="кнопка">
           </button>
@@ -141,6 +237,20 @@
     <div class="inner">
       <div class="swiper case-slider">
         <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="case__card">
+              <h3 class="case__card-name">Менеджер по продажам </h3>
+              <div class="case__card-where">в оптовую компанию</div>
+              <div class="case__block">
+                <div class="case__total"><span class="case__text-reg">закрыли за</span> <span class="case__text-bold">12</span> <span class="case__text-medium">дней</span></div>
+                <div class="case__total"><span class="case__text-reg">в базе</span> <span class="case__text-bold">388</span> <span class="case__text-medium">кандидатов</span></div>
+                <div class="case__btns">
+                  <a href="#!" class="btn-transparent case__btns-link">кейс</a>
+                  <a href="#!" class="btn-color case__btns-link">подбор менеджера</a>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="swiper-slide">
             <div class="case__card">
               <h3 class="case__card-name">Менеджер по продажам </h3>
@@ -319,7 +429,7 @@
       </div>
       <div class="services__card">
         <div class="services__img">
-          <img loading="lazy" src="./img/services-3.png" class="image" width="272" height="184" alt="Фото">
+          <img loading="lazy" src="./img/services-5.png" class="image" width="272" height="184" alt="Фото">
         </div>
         <div class="services__content">
           <h3 class="title-gradient services__title">Что входит в стоимость?</h3>
@@ -691,24 +801,25 @@
         <span class="number__descr">каждый 4-й показанный нами кандидат получает офферы</span>
       </li>
       <li class="number__item">
-        <div class="number__name title-gradient">CV 4/1</div>
-        <span class="number__descr">каждый 4-й показанный нами кандидат получает офферы</span>
+        <div class="number__name title-gradient">до 35% экономии</div>
+        <span class="number__descr">вашего бюджета на найм</span>
       </li>
       <li class="number__item">
-        <div class="number__name title-gradient">CV 4/1</div>
-        <span class="number__descr">каждый 4-й показанный нами кандидат получает офферы</span>
+        <div class="number__name title-gradient">93% — точность</div>
+        <span class="number__descr">попадания в портрет кандидата</span>
       </li>
       <li class="number__item">
-        <div class="number__name title-gradient">CV 4/1</div>
-        <span class="number__descr">каждый 4-й показанный нами кандидат получает офферы</span>
+        <div class="number__name title-gradient">397 подобранных
+          IT специалистов</div>
+        <span class="number__descr">для различных компаний РФ и не только</span>
       </li>
       <li class="number__item">
-        <div class="number__name title-gradient">CV 4/1</div>
-        <span class="number__descr">каждый 4-й показанный нами кандидат получает офферы</span>
+        <div class="number__name title-gradient">80 часов  </div>
+        <span class="number__descr">экономии на закрытие каждой вакансии</span>
       </li>
       <li class="number__item">
-        <div class="number__name title-gradient">CV 4/1</div>
-        <span class="number__descr">каждый 4-й показанный нами кандидат получает офферы</span>
+        <div class="number__name title-gradient">486 000+ резюме  </div>
+        <span class="number__descr">в нашей внутренней базе</span>
       </li>
     </ul>
     <div class="info">
@@ -791,16 +902,16 @@
         <div class="search__text"><b>Продаём</b> лучшим кандидатам <b>идею</b> работать именно у вас</div>
       </li>
     </ul> -->
-    <div class="info">
+    <!-- <div class="info">
       <div class="container">
         <div class="info__content">
           <div class="info__img">
               <img loading="lazy" src="./img/info-img-3.png" class="image" width="467" height="200" alt="Фото">
           </div>
-          <p class="info__text">В среднем за <span class="text-color">12–14</span> дней подбираем для вас <span class="text-dots">специалиста,</span> отвечающего всем вашим требованиям</p>
+          <p class="info__text">В среднем за <span class="text-color">12–14</span> дней подбираем для вас <span class="text-dots">специалиста,</span> отвечающего всем вашим требованиям</p>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </section>
 
@@ -933,7 +1044,7 @@
       <div class="audit__video-inner">
         <div class="video audit__video" id="video-1"
         data-video-url="https://www.youtube.com/embed/4vSXp-83sj4" data-autoplay="true">
-          <img class="video__thumbnail" src="./img/preview.jpg" aria-hidden="true" decoding="async" loading="lazy" alt="">
+          <img class="video__thumbnail" src="../img/preview.jpg" aria-hidden="true" decoding="async" loading="lazy" alt="">
           <button class="btn-reset video__play" aria-label="Запустить видео">
             <img loading="lazy" src="./img/play.svg" class="image" width="120" height="120" alt="кнопка">
           </button>

@@ -85,14 +85,34 @@ aos__WEBPACK_IMPORTED_MODULE_0__.init();
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _functions_burger_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../functions/burger.js */ "./src/js/functions/burger.js");
-/* harmony import */ var _functions_disable_scroll_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../functions/disable-scroll.js */ "./src/js/functions/disable-scroll.js");
-/* harmony import */ var _functions_enable_scroll_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../functions/enable-scroll.js */ "./src/js/functions/enable-scroll.js");
 
-// Реализация остановки скролла (не забудьте вызвать функцию)
+// // Реализация остановки скролла (не забудьте вызвать функцию)
+// import { disableScroll } from '../functions/disable-scroll.js';
 
+// // Реализация включения скролла (не забудьте вызвать функцию)
+// import { enableScroll } from '../functions/enable-scroll.js';
 
-// Реализация включения скролла (не забудьте вызвать функцию)
-
+const button = document.getElementById('toggleButton');
+const accordionContents = document.querySelectorAll('.menu-accordion__content');
+const menuList = document.querySelector('.acc-menu');
+const menuWrap = document.querySelector('.acc-menu__wrap');
+button.addEventListener('click', function () {
+  accordionContents.forEach(content => {
+    content.classList.toggle('show'); // Переключаем класс
+  });
+  menuList.classList.toggle('custom-style'); // Переключаем стиль у списка
+  button.textContent = button.textContent === 'развернуть' ? 'свернуть' : 'развернуть';
+});
+window.addEventListener('scroll', () => {
+  const header = document.querySelector('header');
+  const scrollPosition = window.scrollY;
+  if (scrollPosition > 100) {
+    // Замените 100 на нужное вам значение
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
 
 /***/ }),
 
@@ -119,6 +139,316 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/swiper.mjs");
 /* harmony import */ var swiper_modules__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! swiper/modules */ "./node_modules/swiper/modules/index.mjs");
+// import Swiper from 'swiper';
+// import {
+//   Navigation,
+//   Pagination,
+//   Grid,
+//   Autoplay
+// } from 'swiper/modules';
+
+// Swiper.use([Navigation, Pagination, Grid, Autoplay]);
+
+// const swiperGallerys = document.querySelector('.post-gallery-slider');
+// const swiperCases = document.querySelector('.case-slider');
+// const swiperApproachs = document.querySelector('.resize-slider');
+// const swiperSearchs = document.querySelector('.search-slider');
+// const swiperReviews = document.querySelector('.reviews-company-slider');
+// const swiperSerts = document.querySelector('.certificate-slider');
+
+// if (document.querySelector('.post-gallery-slider')) {
+//   const swiperGallery = new Swiper(swiperGallerys, {
+//     slidesPerView: 1,
+//     // spaceBetween: 20,
+//     loop: true,
+//     autoplay: {
+//       delay: 2000,
+//     },
+//     speed: 2000,
+//     pagination: {
+//       el: ".post-gallery__pag",
+//       type: 'fraction',
+//       clickable: true,
+//     },
+//     navigation: {
+//       nextEl: '.post-gallery__next',
+//       prevEl: '.post-gallery__prev',
+//     },
+//     breakpoints: {
+//       // when window width is >= 320px
+//       // 320: {
+//       //   slidesPerView: 1,
+//       // },
+//       // 768: {
+//       //   slidesPerView: 2,
+//       // },
+//       // 1024: {
+//       //   slidesPerView: 4,
+//       // },
+//     }
+//   });
+
+// }
+
+// if (document.querySelector('.case-slider')) {
+//   const swiperCase = new Swiper(swiperCases, {
+//     // slidesPerView: 3,
+//     // loop: true,
+//     // grid: {
+//     //   rows: 2,
+//     //   fill: "row",
+//     // },
+//     // autoplay: {
+//     //   delay: 2000,
+//     // },
+//     // speed: 500,
+//     // spaceBetween: 30,
+//     // pagination: {
+//     //   el: ".swiper-pagination",
+//     //   clickable: true,
+//     // },
+//     // breakpoints: {
+//     //   360: {
+//     //     slidesPerView: 1.25,
+//     //     spaceBetween: 20,
+//     //   },
+//     //   650: {
+//     //     slidesPerView: 3,
+//     //     slidesPerView: 2.6,
+//     //   },
+//     //   1024: {
+
+//     //     spaceBetween: 30,
+//     //   },
+//     // }
+
+//     slidesPerView: 3, // Количество слайдов в сетке
+//     grid: {
+//       rows: 2, // Количество строк в сетке
+//       fill: 'row', // Изменено на 'column'
+//     },
+//     spaceBetween: 10, // Расстояние между слайдами
+//     autoplay: {
+//       delay: 2500, // Задержка между автоплеем в миллисекундах
+//       disableOnInteraction: false, // Автоплей не останавливается при взаимодействии
+//     },
+//     // loop: true, // Бесконечный цикл
+// breakpoints: {
+//       360: {
+//         slidesPerView: 1.25,
+//         spaceBetween: 20,
+//       },
+//       650: {
+//         slidesPerView: 3,
+//         slidesPerView: 2.6,
+//       },
+//       1024: {
+
+//         spaceBetween: 30,
+//       },
+//     }
+
+//   });
+// }
+
+// if (document.querySelector('.resize-slider')) {
+//   window.addEventListener('DOMContentLoaded', () => {
+
+//     const resizableSwiper = (breakpoint, swiperClass, swiperSettings, callback) => {
+//       let swiper;
+
+//       breakpoint = window.matchMedia(breakpoint);
+
+//       const enableSwiper = function(className, settings) {
+//         swiper = new Swiper(className, settings);
+
+//         if (callback) {
+//           callback(swiper);
+//         }
+//       }
+
+//       const checker = function() {
+//         if (breakpoint.matches) {
+//           return enableSwiper(swiperClass, swiperSettings);
+//         } else {
+//           if (swiper !== undefined) swiper.destroy(true, true);
+//           return;
+//         }
+//       };
+
+//       breakpoint.addEventListener('change', checker);
+//       checker();
+//     }
+
+//     const someFunc = (instance) => {
+//       if (instance) {
+//         instance.on('slideChange', function (e) {
+//           // console.log('*** mySwiper.activeIndex', instance.activeIndex);
+//         });
+//       }
+//     };
+
+//     resizableSwiper(
+//       '(max-width: 650px)',
+//       '.approach-slider',
+//       {
+//         // loop: true,
+//         slidesPerView: 1,
+//         grid: {
+//           rows: 2,
+//           fill: "row",
+//         },
+//         pagination: {
+//           el: '.approach-slider__pag',
+//           clickable: true,
+//         },
+//       },
+//       someFunc
+//     );
+
+//     resizableSwiper(
+//       '(max-width: 960px)',
+//       '.success-company-slider',
+//       {
+//         autoplay: {
+//           delay: 2000,
+//         },
+//         speed: 2000,
+//         slidesPerView: 3,
+//         spaceBetween: 10,
+//         grid: {
+//           rows: 2,
+//           fill: "row",
+//         },
+//         pagination: {
+//           el: '.approach-slider__pag',
+//           clickable: true,
+//         },
+//         breakpoints: {
+//           360: {
+//             slidesPerView: 1,
+//             grid: {
+//               rows: 1,
+//               fill: "row",
+//             },
+//           },
+//           650: {
+//             grid: {
+//               rows: 2,
+//               fill: "row",
+//             },
+//           },
+//         }
+//       },
+//       someFunc
+//     );
+
+//   });
+// }
+
+// if (document.querySelector('.search-slider')) {
+//   const swiperSearch = new Swiper(swiperSearchs, {
+//     slidesPerView:3,
+//     spaceBetween: 20,
+//     autoplay: {
+//       delay: 2000,
+//     },
+//     speed: 2000,
+//     breakpoints: {
+//       360: {
+//         slidesPerView: 1.5,
+//         spaceBetween: 20,
+//       },
+//       650: {
+//         slidesPerView: 2.5,
+//       },
+//       1024: {
+//         slidesPerView: 3,
+//       },
+//     }
+//   });
+// }
+
+// if (document.querySelector('.reviews-company-slider')) {
+//   var swiperReview = new Swiper(swiperReviews, {
+//     autoplay: {
+//       delay: 2500, // Задержка между автоплеем в миллисекундах
+//       disableOnInteraction: false, // Автоплей не останавливается при взаимодействии
+//     },
+//     // loop: true, // Бесконечный цикл
+//     slidesPerView: 3,
+//     grid: {
+//       rows: 2,
+//       fill: "row",
+//     },
+//     spaceBetween: 30,
+//     pagination: {
+//       el: ".swiper-pagination",
+//       clickable: true,
+//     },
+//     breakpoints: {
+//       360: {
+//         slidesPerView: 1.25,
+//         spaceBetween: 20,
+//       },
+//       650: {
+//         slidesPerView: 3,
+//         slidesPerView: 2.6,
+//       },
+//       1024: {
+
+//         spaceBetween: 30,
+//       },
+//     }
+//   });
+// }
+
+// if (document.querySelector('.certificate-slider')) {
+//   var swiperSert = new Swiper(swiperSerts, {
+//     autoplay: {
+//       delay: 2000,
+//     },
+//     speed: 2000,
+//     slidesPerView: 4,
+//     spaceBetween: 30,
+//     pagination: {
+//       el: ".swiper-pagination",
+//       clickable: true,
+//     },
+//     breakpoints: {
+//       360: {
+//         slidesPerView: 1.85,
+//         spaceBetween: 20,
+//       },
+//       650: {
+//         slidesPerView: 3.2,
+//       },
+//       960: {
+//         slidesPerView: 4.3,
+//       },
+//       1170: {
+//         slidesPerView: 4,
+//       },
+//       // 1366: {
+//       //   spaceBetween: 30,
+//       // },
+//     }
+//   });
+// }
+
+// const handleAutoplay = (entries) => {
+//   entries.forEach(entry => {
+//       if (entry.isIntersecting) {
+//         swiperSearchs.autoplay.start(); // Запуск автоплея
+//       } else {
+//         swiperSearchs.autoplay.stop(); // Остановка автоплея
+//       }
+//   });
+// };
+
+// const observer = new IntersectionObserver(handleAutoplay);
+// observer.observe(document.querySelector('.swiper'));
+
 
 
 swiper__WEBPACK_IMPORTED_MODULE_0__["default"].use([swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Navigation, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Pagination, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Grid, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Autoplay]);
@@ -128,10 +458,23 @@ const swiperApproachs = document.querySelector('.resize-slider');
 const swiperSearchs = document.querySelector('.search-slider');
 const swiperReviews = document.querySelector('.reviews-company-slider');
 const swiperSerts = document.querySelector('.certificate-slider');
+
+// Функция для управления автоплеем
+const handleAutoplay = swiper => {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        swiper.autoplay.start(); // Запуск автоплея
+      } else {
+        swiper.autoplay.stop(); // Остановка автоплея
+      }
+    });
+  });
+  observer.observe(swiper.el); // Наблюдение за элементом слайдера
+};
 if (document.querySelector('.post-gallery-slider')) {
   const swiperGallery = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](swiperGallerys, {
     slidesPerView: 1,
-    // spaceBetween: 20,
     loop: true,
     autoplay: {
       delay: 2000
@@ -147,66 +490,32 @@ if (document.querySelector('.post-gallery-slider')) {
       prevEl: '.post-gallery__prev'
     },
     breakpoints: {
-      // when window width is >= 320px
-      // 320: {
-      //   slidesPerView: 1,
-      // },
-      // 768: {
-      //   slidesPerView: 2,
-      // },
-      // 1024: {
-      //   slidesPerView: 4,
-      // },
+      // when window width is >= 320 px
+      320: {
+        slidesPerView: 1
+      },
+      768: {
+        slidesPerView: 2
+      },
+      1024: {
+        slidesPerView: 4
+      }
     }
   });
+  handleAutoplay(swiperGallery); // Запуск автоплея для этого слайдера
 }
 if (document.querySelector('.case-slider')) {
   const swiperCase = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](swiperCases, {
-    // slidesPerView: 3,
-    // loop: true,
-    // grid: {
-    //   rows: 2,
-    //   fill: "row",
-    // },
-    // autoplay: {
-    //   delay: 2000,
-    // },
-    // speed: 500,
-    // spaceBetween: 30,
-    // pagination: {
-    //   el: ".swiper-pagination",
-    //   clickable: true,
-    // },
-    // breakpoints: {
-    //   360: {
-    //     slidesPerView: 1.25,
-    //     spaceBetween: 20,
-    //   },
-    //   650: {
-    //     slidesPerView: 3,
-    //     slidesPerView: 2.6,
-    //   },
-    //   1024: {
-
-    //     spaceBetween: 30,
-    //   },
-    // }
-
     slidesPerView: 3,
-    // Количество слайдов в сетке
     grid: {
       rows: 2,
-      // Количество строк в сетке
-      fill: 'row' // Изменено на 'column'
+      fill: 'row'
     },
     spaceBetween: 10,
-    // Расстояние между слайдами
     autoplay: {
       delay: 2500,
-      // Задержка между автоплеем в миллисекундах
-      disableOnInteraction: false // Автоплей не останавливается при взаимодействии
+      disableOnInteraction: false
     },
-    // loop: true, // Бесконечный цикл
     breakpoints: {
       360: {
         slidesPerView: 1.25,
@@ -221,6 +530,7 @@ if (document.querySelector('.case-slider')) {
       }
     }
   });
+  handleAutoplay(swiperCase); // Запуск автоплея для этого слайдера
 }
 if (document.querySelector('.resize-slider')) {
   window.addEventListener('DOMContentLoaded', () => {
@@ -252,7 +562,6 @@ if (document.querySelector('.resize-slider')) {
       }
     };
     resizableSwiper('(max-width: 650px)', '.approach-slider', {
-      // loop: true,
       slidesPerView: 1,
       grid: {
         rows: 2,
@@ -317,25 +626,20 @@ if (document.querySelector('.search-slider')) {
       }
     }
   });
+  handleAutoplay(swiperSearch); // Запуск автоплея для этого слайдера
 }
 if (document.querySelector('.reviews-company-slider')) {
-  var swiperReview = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](swiperReviews, {
+  const swiperReview = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](swiperReviews, {
     autoplay: {
       delay: 2500,
-      // Задержка между автоплеем в миллисекундах
-      disableOnInteraction: false // Автоплей не останавливается при взаимодействии
+      disableOnInteraction: false
     },
-    // loop: true, // Бесконечный цикл
     slidesPerView: 3,
     grid: {
       rows: 2,
       fill: "row"
     },
     spaceBetween: 30,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true
-    },
     breakpoints: {
       360: {
         slidesPerView: 1.25,
@@ -350,19 +654,16 @@ if (document.querySelector('.reviews-company-slider')) {
       }
     }
   });
+  handleAutoplay(swiperReview); // Запуск автоплея для этого слайдера
 }
 if (document.querySelector('.certificate-slider')) {
-  var swiperSert = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](swiperSerts, {
+  const swiperSert = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](swiperSerts, {
     autoplay: {
       delay: 2000
     },
     speed: 2000,
     slidesPerView: 4,
     spaceBetween: 30,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true
-    },
     breakpoints: {
       360: {
         slidesPerView: 1.85,
@@ -382,6 +683,7 @@ if (document.querySelector('.certificate-slider')) {
       // },
     }
   });
+  handleAutoplay(swiperSert); // Запуск автоплея для этого слайдера
 }
 
 /***/ }),
