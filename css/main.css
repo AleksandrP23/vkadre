@@ -3016,7 +3016,6 @@ header.scrolled {
   margin-top: 0;
 }
 .search__list {
-  counter-reset: count -1;
   margin-bottom: 120px;
 }
 @media (max-width: 1366px) {
@@ -3057,7 +3056,6 @@ header.scrolled {
   }
 }
 .search__day {
-  counter-increment: count;
   display: inline-block;
   margin-bottom: 20px;
   font-weight: 600;
@@ -3084,9 +3082,6 @@ header.scrolled {
   .search__day {
     margin-bottom: 5px;
   }
-}
-.search__day::before {
-  content: counter(count);
 }
 .search__text {
   font-weight: 400;
